@@ -6,45 +6,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Discover Japan: Nature Videos</title>
   <link rel="stylesheet" href="styles.css">
-  <script>
+ <script>
     function redirectToYouTube(youtubeLink) {
       window.location.href = youtubeLink;
     }
+   function filterVideos() {
+    var categoryFilter = document.getElementById('category-filter').value;
+    var videoItems = document.getElementsByClassName('video-item');
 
-    function filterVideos() {
-      var categoryFilter = document.getElementById('category-filter').value;
-      var videoItems = document.getElementsByClassName('video-item');
+    for (var i = 0; i < videoItems.length; i++) {
+      var videoCategory = videoItems[i].getAttribute('data-category');
 
-      for (var i = 0; i < videoItems.length; i++) {
-        var videoCategory = videoItems[i].getAttribute('data-category');
+      if (categoryFilter === 'all' || categoryFilter === videoCategory) {
+        videoItems[i].style.display = 'block';
+      } else {
+        videoItems[i].style.display = 'none';
+      	}
+    	}
+ 	 }
+ </script>
 
-        if (categoryFilter === 'all' || categoryFilter === videoCategory) {
-          videoItems[i].style.display = 'block';
-        } else {
-          videoItems[i].style.display = 'none';
-        }
-      }
-    }
-  </script>
 </head>
 
 <body>
   <header>
     <h1>Discover Japan: Nature Videos</h1>
   </header>
+<!-- 追加したいセレクトボックス -->
+<label for="category-filter" class="filter-label">Filter by Category:</label>
+<div class="custom-select">
+  <select id="category-filter" class="filter-select" onchange="filterVideos()">
+  <option value="all">All</option>
+  <option value="nature">Nature</option>
+  <option value="culture">Culture</option>
+  <!-- 追加のカテゴリをここに追加 -->
+</select>
 
   <section class="video-list">
-    <!-- Video items will be dynamically generated here -->
-    <div class="video-item" data-category="nature" onclick="redirectToYouTube('https://www.youtube.com/watch?v=J-QLmNmPyZo')">
-      <img src="top.png" alt="Video Thumbnail">
-      <div class="video-info">
-        <h2>Video Title</h2>
-        <p>Description of the video content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </div>
-    </div>
+	<!-- Video items will be dynamically generated here -->
+	<div class="video-item">
+	  <img src="tikusei_thum22.jpg" alt="Video Thumbnail">
+ 	 <div class="video-info">
+ 	   <h2>Video Title</h2>
+ 	   <p>Description of the video content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+ 	   <a href="https://youtu.be/J-QLmNmPyZo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+ 	 </div>
+	</div>
 
-    <!-- Add more video items as needed -->
+	<!-- Video items will be dynamically generated here -->
+	<div class="video-item">
+	  <img src="tikusei_thum22.jpg" alt="Video Thumbnail">
+ 	 <div class="video-info">
+ 	   <h2>Video Title</h2>
+ 	   <p>Description of the video content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+ 	   <a href="https://youtu.be/J-QLmNmPyZo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+ 	 </div>
+	</div>
+
+	<!-- Video items will be dynamically generated here -->
+	<div class="video-item">
+	  <img src="tikusei_thum22.jpg" alt="Video Thumbnail">
+ 	 <div class="video-info">
+ 	   <h2>Video Title</h2>
+ 	   <p>Description of the video content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+ 	   <a href="https://youtu.be/J-QLmNmPyZo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+ 	 </div>
+	</div>
+
+	<!-- Video items will be dynamically generated here -->
+	<div class="video-item">
+	  <img src="tikusei_thum22.jpg" alt="Video Thumbnail">
+ 	 <div class="video-info">
+ 	   <h2>Video Title</h2>
+ 	   <p>Description of the video content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+ 	   <a href="https://youtu.be/J-QLmNmPyZo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+ 	 </div>
+	</div>
+
+	<!-- Video items will be dynamically generated here -->
+	<div class="video-item" data-category="nature" <!--onclick="redirectToYouTube('https://youtu.be/J-QLmNmPyZo')"-->
+	  <img src="tikusei_thum22.jpg" alt="Video Thumbnail">
+	  <div class="video-info">
+	    <h2>Video Title</h2>
+	    <p>Description of the video content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+	    <a href="https://youtu.be/J-QLmNmPyZo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+	  </div>
+	</div>
+
+
+
   </section>
 
   <footer>
